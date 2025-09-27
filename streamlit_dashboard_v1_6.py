@@ -37,7 +37,11 @@ with tabs[0]:
     if usar:
         ventas[usar] = pd.to_numeric(ventas[usar], errors="coerce")
         st.metric("Ventas totales", f"{ventas[usar].sum():,.2f}")
-    st.dataframe(ventas.head(200))
+    # Formatear columnas numéricas
+    ventas_fmt = ventas.copy()
+    for col in ventas_fmt.select_dtypes(include=['float', 'int']).columns:
+        ventas_fmt[col] = ventas_fmt[col].map(lambda x: f"{x:,.2f}" if pd.notnull(x) else "")
+    st.dataframe(ventas_fmt.head(200))
 
 with tabs[1]:
     st.subheader("Cartera (resumen rápido)")
@@ -46,7 +50,10 @@ with tabs[1]:
     if tot:
         cartera[tot] = pd.to_numeric(cartera[tot], errors="coerce")
         st.metric("Cartera total", f"{cartera[tot].sum():,.2f}")
-    st.dataframe(cartera.head(200))
+    cartera_fmt = cartera.copy()
+    for col in cartera_fmt.select_dtypes(include=['float', 'int']).columns:
+        cartera_fmt[col] = cartera_fmt[col].map(lambda x: f"{x:,.2f}" if pd.notnull(x) else "")
+    st.dataframe(cartera_fmt.head(200))
 
 with tabs[2]:
     st.subheader("Alertas (clientes con mora y con facturación)")
@@ -68,6 +75,9 @@ with tabs[2]:
         alert = vv.merge(cc[["_k","overdue"]], on="_k", how="inner")
         res = alert.groupby(v_name, as_index=False).agg(facturas=("monto","size"), monto=("monto","sum"), vencido=("overdue","max"))
         st.metric("Clientes con alerta", f"{len(res):,}")
-        st.dataframe(res.sort_values("monto", ascending=False).head(100))
+        res_fmt = res.copy()
+        for col in res_fmt.select_dtypes(include=['float', 'int']).columns:
+            res_fmt[col] = res_fmt[col].map(lambda x: f"{x:,.2f}" if pd.notnull(x) else "")
+        st.dataframe(res_fmt.sort_values("monto", ascending=False).head(100))
     else:
         st.info("No se detectaron columnas para generar alertas.")
