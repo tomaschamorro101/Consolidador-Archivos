@@ -1,0 +1,13 @@
+[2025-09-26 19:55:34] ===== INICIO APP v1.5 (patch FIX2) =====
+[2025-09-26 19:55:34] dayfirst=True
+[2025-09-26 19:55:34] Personas: C:\Users\Usuario\Downloads\consolidador_suite_v1_6_ETL_FIX2\Personas.xlsx
+[2025-09-26 19:55:34] Cartera:  C:\Users\Usuario\Downloads\consolidador_suite_v1_6_ETL_FIX2\CarteraPorCobrar.xlsx
+[2025-09-26 19:55:34] Ventas:   C:\Users\Usuario\Downloads\consolidador_suite_v1_6_ETL_FIX2\Ventas Personalizado.xlsx
+[2025-09-26 19:55:36] Header (1-based): Personas=1 Cartera=1 Ventas=1
+[2025-09-26 19:55:39] SQLite exportado: C:\Users\Usuario\Downloads\consolidador_suite_v1_6_ETL_FIX2\salida_app\consolidado.db
+[2025-09-26 19:55:39] Tablas en DB: ['personas', 'cartera', 'ventas', 'consolidado']
+[2025-09-26 19:55:39] Columnas personas: ['Tipo', 'RUC', 'Cédula', 'Razón Social', 'Nombre Comercial', 'Categoría Persona', 'Vendedor Asignado', 'Teléfonos', 'Dirección', 'Email', 'Es Extranjero', 'Es Cliente', 'Centro de Costo Cliente', 'Cuenta por Cobrar', 'Es Proveedor'] ...
+[2025-09-26 19:55:39] Columnas cartera: ['Cliente', 'Razón Social', 'Tipo Documento', '# Documento', 'F. Emisión', 'F. Vencimiento', 'Vendedor', 'Centro de Costo', 'Categoría de Persona', 'Por vencer', '30 días', '60 días', '90 días', '120 días', '120 días__1'] ...
+[2025-09-26 19:55:39] Columnas ventas: ['Tipo de Documento', '# Documento', 'Identificación', 'Razón Social', 'Nombre Comercial', 'Fecha de Emisión', 'Fecha de Vencimiento', 'Vendedor', 'Mes Emisión', 'Bodega', 'Sub. 0', 'Sub.', 'IVA', 'Saldo', 'Descuento'] ...
+[2025-09-26 19:55:39] Columnas consolidado: ['ID_UNICO', 'PER_RUC', 'PER_Cédula', 'PER_Razón Social', 'PER_Nombre Comercial', 'PER_Categoría Persona', 'PER_Vendedor Asignado', 'PER_Es Vendedor', 'PER_Monto Crédito', 'PER_Días Crédito', 'CAR_Cliente', 'CAR_Razón Social', 'CAR_Tipo Documento', 'CAR_# Documento', 'CAR_Valor documento'] ...
+[2025-09-26 19:55:39] ===== FIN APP v1.5 (patch FIX2) =====
